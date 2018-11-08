@@ -10,56 +10,144 @@
 </head>
 
 <body>
-  <!-- MOUNTING POINTS -->
   <div id="app">
     <div class="categories">
+      <!--
+        app refers to the app property on window. controllers refers to the controllers property on the app object which is creating instances of itself. autosController refers to a specific instance of the controller that contains the value AutosController. showAutos() is a function within the class AutosController. showAutos() is responsibile for creating a bootstrap card that displays the created gregslist post.
+      -->
       <button class="btn btn-primary" onclick="app.controllers.autosController.showAutos()">Autos</button>
-      <button class="btn btn-primary">Real Estate</button>
-      <button class="btn btn-primary">Jobs</button>
+      <button class="btn btn-primary" onclick="app.controllers.estatesController.showEstates()">Real Estate</button>
+      <button class="btn btn-primary" onclick="app.controllers.jobsController.showJobs()">Jobs</button>
     </div>
-
+    <!--
+    this container holds the heading information.
+    -->
     <div class="container">
       <div class="row" id="main-content">
         Choose a category to start buying stuff in
       </div>
     </div>
+    <div class="row">
 
-    <form onsubmit="app.controllers.autosController.addAuto(event)">
-      <div class="form-group">
-        <label for="make">Make</label>
-        <input type="text" name="make" />
-      </div>
-      <div class="form-group">
-        <label for="model">Model:</label>
-        <input type="text" name="model" />
-      </div>
-      <div class="form-group">
-        <label for="year">Year:</label>
-        <input type="number" name="year" />
-      </div>
-      <div class="form-group">
-        <label for="miles">Mile:</label>
-        <input type="number" name="miles" />
-      </div>
-      <div class="form-group">
-        <label for="PRICE">Price:</label>
-        <input type="number" name="PRICE" />
-      </div>
-      <div class="form-group">
-        <label for="img">Image:</label>
-        <input type="url" name="img" />
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea type="text" name="description"></textarea>
-      </div>
-      <button type="submit">Add Auto</button>
-    </form>
+      <!--Auto Form-->
 
+      <div class="col-4 d-felx justify-content-center">
+        <!--
+          onsubmit is just a class name??????
+          app is referring to the app property on the window... its the same route as the button classes above EXCEPT it is invoking a function called addAuto(event). The keyword event will... On click we are triggering a submission of a form. The form is capturing the submission event and passing it to app.controllers...
+        -->
+        <form onsubmit="app.controllers.autosController.addAuto(event)">
+          <div class="form-group">
+            <label for="make">Make</label>
+            <input type="text" name="make" />
+          </div>
+          <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" name="model" />
+          </div>
+          <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" name="year" />
+          </div>
+          <div class="form-group">
+            <label for="miles">Mile:</label>
+            <input type="number" name="miles" />
+          </div>
+          <div class="form-group">
+            <label for="PRICE">Price:</label>
+            <input type="number" name="PRICE" />
+          </div>
+          <div class="form-group">
+            <label for="img">Image:</label>
+            <input type="url" name="img" />
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea type="text" name="description"></textarea>
+          </div>
+          <!--submit is a keyword. When this button is clicked this will tigger an event at the top of the form (addAuto) to run javascript and return the created data... -->
+          <button type="submit">Add Auto</button>
+        </form>
+      </div>
 
+      <!--Real Estate Form-->
+
+      <div class=" col-4 d-felx justify-content-center">
+        <form onsubmit="app.controllers.estatesController.addEstate(event)">
+          <div class="form-group">
+            <label for="numbeds">Number of beds</label>
+            <input type="number" name="numbeds" />
+          </div>
+          <div class="form-group">
+            <label for="numbaths">Number of baths:</label>
+            <input type="number" name="numbaths" />
+          </div>
+          <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" name="year" />
+          </div>
+          <div class="form-group">
+            <label for="sqft">Square Feet:</label>
+            <input type="number" name="sqft" />
+          </div>
+          <div class="form-group">
+            <label for="PRICE">Price:</label>
+            <input type="number" name="PRICE" />
+          </div>
+          <div class="form-group">
+            <label for="img">Image:</label>
+            <input type="url" name="img" />
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea type="text" name="description"></textarea>
+          </div>
+          <div class="address">
+            <label for="address">Address:</label>
+            <textarea type="text" name="address"></textarea>
+          </div>
+          <button type="submit">Add Estate</button>
+        </form>
+      </div>
+
+      <!--Job Form-->
+
+      <div class=" col-4 d-felx justify-content-center">
+        <form onsubmit="app.controllers.jobsController.addJob(event)">
+          <div class="form-group">
+            <label for="jobtitle">Job Title:</label>
+            <input type="text" name="jobtitle" />
+          </div>
+          <div class="form-group">
+            <label for="company">Company:</label>
+            <input type="text" name="company" />
+          </div>
+          <div class="form-group">
+            <label for="workhrs">Work hours:</label>
+            <input type="number" name="workhrs" />
+          </div>
+          <div class="form-group">
+            <label for="pay">Pay:</label>
+            <input type="pay" name="pay" />
+          </div>
+          <div class="form-group">
+            <label for="sqft">Benifits:</label>
+            <input type="text" name="benefits" />
+          </div>
+          <div class="form-group">
+            <label for="jobdescription">Job description:</label>
+            <textarea type="text" name="jobdescription"></textarea>
+          </div>
+
+          <button type="submit">Add job</button>
+        </form>
+      </div>
+    </div>
+  </div>
   </div>
 
-
+  <!-- MOUNTING POINTS -->
+  <!--Entry Point to Javascrpt world-->
   <script src="app/main.js" type="module"></script>
 
 

@@ -1,3 +1,5 @@
+//blueprint for data
+
 export default class Auto {
   constructor(data) {
     if (!data.make || !data.model || !data.year || !data.miles || !data.price || !data.description) {

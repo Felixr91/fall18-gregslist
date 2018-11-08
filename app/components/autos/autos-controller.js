@@ -1,5 +1,8 @@
+//handles inputs and events
+//after service completes data manipulation controller renders changes to the DOM
+//importing class
 import AutosService from "./autos-service.js";
-
+//creating a new instance of above class
 let _autosService = new AutosService()
 
 
@@ -21,10 +24,10 @@ export default class AutosController {
     })
     document.getElementById('main-content').innerHTML = template
   }
-
-  addAuto(event) {
-    event.preventDefault(); //prevents the page from reloading
-    let form = event.target // the element that triggers the event
+  //e is for event passed from form submission
+  addAuto(e) {
+    e.preventDefault(); //prevents the page from reloading
+    let form = e.target // the element that triggers the event
     let formData = {
       make: form.make.value,
       model: form.model.value,
